@@ -1,0 +1,47 @@
+﻿@model GAP.Seguros.ModeloDatos.Cliente
+@{
+    ViewBag.Title = "Nuevo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Nuevo Cliente</h2>
+
+<hr />
+
+<form method="post" action="@Url.Action("Nuevo", "CLiente")">
+    <div class="form-group">
+        <label>Cédula</label>
+        @Html.TextBoxFor(x => x.Cedula, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Nombre</label>
+        @Html.TextBoxFor(x => x.Nombre, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Edad</label>
+        @Html.TextBoxFor(x => x.Edad, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Nacionalidad</label>
+        @Html.TextBoxFor(x => x.Nacionalidad, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Estado</label>
+        @Html.TextBoxFor(x => x.Activo, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Usuario Creación</label>
+        @Html.TextBoxFor(x => x.UsuarioCreacion, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Fecha Creación</label>
+        @Html.TextBoxFor(x => x.FechaCreacion, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn-success" value="Enviar" />
+        <a href="@Url.Action("Index", "Cliente")" class="btn btn-info riht">Regresar</a>
+    </div>
+
+
+</form>
+

@@ -1,0 +1,117 @@
+﻿@model GAP.Seguros.ModeloDatos.Poliza
+@{
+    ViewBag.Title = "Detalle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalle Poliza</h2>
+<hr />
+
+<div class="form-group">
+    <label class="label label-info">Número de Póliza</label>
+    <b> @Model.IdPoliza </b>
+</div>
+<div class="form-group">
+    <label class="label label-info">Tipo de Poliza</label>
+    @*<b> @Model.TipoPoliza </b>*@
+    @{
+        switch (@Model.IdPoliza)
+        {
+            case 1:
+                // Use the text block below to separate html elements from code
+                <text>
+                    <b>Terremoto</b>
+                </text>
+                break;  // Always break each case
+            case 2:
+                <text>
+                     <b>Incendio</b>
+                </text>
+                break;
+            case 3:
+                <text>
+                    <b>Robo</b>
+                </text>
+                break;
+            default:
+                <text>
+                    <b>Perdida</b>
+                </text>
+                break;
+        }
+    }
+</div>
+<div class="form-group">
+    <label class="label label-info">Nombre Póliza</label>
+    <b> @Model.Nombre </b>
+</div>
+<div class="form-group">
+    <label class="label label-info">Descripción</label>
+    <b> @Model.Descripcion </b>
+</div>
+<div class="form-group">
+    <label class="label label-info">Fecha Inicio</label>
+    <b> @Model.Inicio </b>
+</div>
+<div class="form-group">
+    <label class="label label-info">Duración</label>
+    <b>  @Model.Duracion  </b> <b> meses</b>
+</div>
+<div class="form-group">
+    <label class="label label-info">Precio</label>
+    <b>  @Model.Precio </b>
+</div>
+<div class="form-group">
+    <label class="label label-info">Tipo de Riesgo</label>
+    @{
+        switch (@Model.TipoRiesgo)
+        {
+            case "1":
+                // Use the text block below to separate html elements from code
+                <text>
+                    <b>Alto</b>
+                </text>
+                break;  // Always break each case
+            case "2":
+                <text>
+                    <b>Medio-Alto</b>
+                </text>
+                break;
+            case "3":
+                <text>
+                    <b>Medio</b>
+                </text>
+                break;
+            default:
+                <text>
+                    <b>Bajo</b>
+                </text>
+                break;
+        }
+    }
+    @*<b>  @Model.TipoRiesgo </b>*@
+</div>
+<div class="form-group">
+    <label class="label label-info">Estado</label>
+    @if (@Model.Activo)
+    {
+        <b> Activo</b>
+    }
+    else
+    {
+       <b> Inactivo </b>
+    }
+
+</div>
+<div class="form-group">
+    <label class="label label-info">Usuario Creación</label>
+    <b>    @Model.UsuarioCreacion </b>
+</div>
+<div class="form-group">
+    <label class="label label-info">Fecha Creación</label>
+    <b>   @Model.FechaCreacion </b>
+</div>
+<div class="form-group">
+    <a href="@Url.Action("Index", "Poliza")" class="btn btn-info riht">Regresar</a>
+</div>
+

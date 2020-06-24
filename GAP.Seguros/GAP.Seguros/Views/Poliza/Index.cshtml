@@ -1,0 +1,77 @@
+﻿@model List<GAP.Seguros.ModeloDatos.Poliza>
+@{
+    ViewBag.Title = "Poliza";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>
+    <a href="@Url.Action("Nuevo", "Poliza")" class="btn btn-primary right">Nuevo</a>
+    Listado de Polizas</h2>
+    <Table class="table table-striped">
+    <thead >
+        <tr >
+            <td >Número</td>
+            <td>Tipo Póliza</td>
+            <td>Inicio</td>
+            @*<td>Duracion</td>
+            <td>Precio</td>
+            <td>IdTipoRiesgo</td>
+            <td>Activo</td>*@
+            <td>Usuario Creacion</td>
+            <td>Fecha Creacion</td>
+            <td>Accciones</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var poliza in Model)
+        {
+        <tr>
+            <th scope="row">@poliza.IdPoliza</th>
+           
+            @{
+                switch (@poliza.TipoPoliza)
+                {
+                    case "1":
+                        // Use the text block below to separate html elements from code
+                        <text>
+                            <th scope="row">Terremoto</th>
+                        </text>
+                        break;  // Always break each case
+                    case "2":
+                        <text>
+                            <th scope="row">Incendio</th>
+                        </text>
+                        break;
+                    case "3":
+                        <text>
+                            <th scope="row">Robo</th>
+                        </text>
+                        break;
+                    default:
+                        <text>
+                            <th scope="row">Perdida</th>
+                        </text>
+                        break;
+                }
+            }
+            @*<td>@poliza.TipoPoliza</td>*@
+            <td>@poliza.Inicio</td>
+            @*<td>@poliza.Duracion</td>
+        <td>@poliza.Precio</td>
+        <td>@poliza.IdTipoRiesgo</td>
+        <td>@poliza.Activo</td>*@
+            <td>@poliza.UsuarioCreacion</td>
+            <td>@poliza.FechaCreacion</td>
+            <td>
+                <a href="@Url.Action("Actualizar", "Poliza", new { idPoliza = poliza.IdPoliza, idTipoPolizSelec = poliza.TipoPoliza, idTipoRiesSelec = poliza.TipoRiesgo})" class="btn btn-success">Actualizar</a>
+                <a href="@Url.Action("Eliminar", "Poliza", new { id = poliza.IdPoliza})" class="btn btn-danger">Eliminar</a>
+                <a href="@Url.Action("Detalle", "Poliza", new { idPoliza = poliza.IdPoliza})" class="btn btn-info riht">Ver Detalle</a>
+            </td>
+        </tr>
+        }
+
+    </tbody>
+</Table>
+
+
+

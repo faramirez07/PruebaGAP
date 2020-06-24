@@ -1,0 +1,64 @@
+﻿@model GAP.Seguros.ModeloDatos.Poliza
+@{
+    ViewBag.Title = "Nuevo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Nueva Póliza</h2>
+<hr />
+
+<form method="post" action="@Url.Action("Nuevo", "Poliza")">
+    @*<div class="form-group">
+        <label>IdPoliza</label>
+        @Html.TextBoxFor(x => x.IdPoliza, new { @class = "form-control" })
+    </div>*@
+    <div class="form-group">
+        <label>Tipo de Póliza</label>
+        @Html.DropDownList("TipoPoliza", new SelectList(ViewBag.TipoPoliza, "IdTipo", "Nombre"), new { @class = "form-control" })
+           @* (model => model.TipoPoliza, (IEnumerable<SelectListItem>)ViewBag.TipoPoliza, new { @placeholder = "Seleccione un tipo de proyecto" })*@
+       @* @Html.TextBoxFor(x => x.TipoPoliza, new { @class = "form-control" })*@
+    </div>
+    <div class="form-group">
+        <label>Póliza</label>
+        @Html.TextBoxFor(x => x.Nombre, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Descripción</label>
+        @Html.TextBoxFor(x => x.Descripcion, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Inicio</label>
+        @Html.TextBoxFor(x => x.Inicio, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Duración</label>
+        @Html.TextBoxFor(x => x.Duracion, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Precio</label>
+        @Html.TextBoxFor(x => x.Precio, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Tipo de Riesgo</label>
+        @Html.DropDownList("TipoRiesgo", new SelectList(ViewBag.TipoRiesgo, "IdRiesgo", "Nombre"), new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Activo</label>
+        @Html.TextBoxFor(x => x.Activo, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Usuario Creación</label>
+        @Html.TextBoxFor(x => x.UsuarioCreacion, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Fecha Creación</label>
+        @Html.TextBoxFor(x => x.FechaCreacion, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn-success" value="Enviar" />
+        <a href="@Url.Action("Index", "Poliza")" class="btn btn-info riht">Regresar</a>
+    </div>
+
+
+</form>
+

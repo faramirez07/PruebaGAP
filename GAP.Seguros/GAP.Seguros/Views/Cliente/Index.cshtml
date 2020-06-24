@@ -1,0 +1,39 @@
+﻿@model List<GAP.Seguros.ModeloDatos.Cliente>
+@{
+    ViewBag.Title = "Cliente";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>
+    <a href="@Url.Action("Nuevo", "Cliente")" class="btn btn-primary right">Nuevo</a>
+    Listado de Clientes
+</h2>
+<Table class="table table-striped">
+    <thead>
+        <tr>
+            <td>Número</td>
+            <td>Cédula</td>
+            <td>Nombre</td>
+            <td>Usuario Creacion</td>
+            <td>Fecha Creacion</td>
+            <td>Accciones</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cliente in Model)
+        {
+            <tr>
+                <td>@cliente.IdCliente</td>
+                <td>@cliente.Nombre</td>
+                <td>@cliente.UsuarioCreacion</td>
+                <td>@cliente.FechaCreacion</td>
+                <td>
+                    <a href="@Url.Action("Actualizar", "Cliente", new { idCliente = cliente.IdCliente})" class="btn btn-success">Actualizar</a>
+                    <a href="@Url.Action("Eliminar", "Cliente", new { id = cliente.IdCliente})" class="btn btn-danger">Eliminar</a>
+                    <a href="@Url.Action("Detalle", "Cliente", new { idCliente = cliente.IdCliente})" class="btn btn-info riht">Ver Detalle</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</Table>
+

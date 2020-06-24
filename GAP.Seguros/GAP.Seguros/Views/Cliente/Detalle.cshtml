@@ -1,0 +1,45 @@
+﻿@model GAP.Seguros.ModeloDatos.Cliente
+@{
+    ViewBag.Title = "Detalle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalle Cliente</h2>
+
+<div class="form-group">
+<label class="label label-info">Cédula</label>
+<b> @Model.Cedula </b>
+</div>
+<div class="form-group">
+    <label class="label label-info">Nombre</label>
+    <b> @Model.Nombre </b>
+</div>
+<div class="form-group">
+    <label class="label label-info">Edad</label>
+    <b> @Model.Edad </b>
+</div>
+<div class="form-group">
+    <label class="label label-info">Estado</label>
+    @if (@Model.Activo)
+    {
+        <b> Activo</b>
+    }
+    else
+    {
+        <b> Inactivo </b>
+    }
+
+</div>
+<div class="form-group">
+    <label class="label label-info">Usuario Creación</label>
+    <b>    @Model.UsuarioCreacion </b>
+</div>
+<div class="form-group">
+    <label class="label label-info">Fecha Creación</label>
+    <b>   @Model.FechaCreacion </b>
+</div>
+<div class="form-group">
+    <a href="@Url.Action("Index", "Cliente")" class="btn btn-info riht">Regresar</a>
+</div>
+
+
